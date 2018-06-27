@@ -1,14 +1,23 @@
 <template>
-  <div>
-    <h1> Register </h1>
+  <v-layout column>
+    <v-flex xs10 offset-xs1>
+      <div class="white elevation-2">
+        <v-toolbar flat dense class="cyan" dark>
+          <v-toobar-title> Register</v-toobar-title>
+        </v-toolbar>
 
-    <input type="email" name="email" v-model="email" placeholder="email"/>
-    <br>
-    <!-- v-model is the element checking  -->
-    <input type="password" name="password" v-model="password" placeholder="password"/>
-    <br>
-    <button @click="register"> Register </button>
-  </div>
+        <div class="pl-4 pr-4 pt-2 pb-2">
+          <input type="email" name="email" v-model="email" placeholder="email"/>
+          <br>
+          <!-- v-model is the element checking  -->
+          <input type="password" name="password" v-model="password" placeholder="password"/>
+          <br>
+          <div class="error" v-html="error" />
+          <v-btn class="cyan" @click="register"> Register </v-btn>
+        </div>
+      </div>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -17,8 +26,9 @@ export default{
   // set the default data
   data () {
     return {
-      email: 'abc',
-      password: '123'
+      email: '',
+      password: '',
+      error: null
     }
   },
   // check the change of the email
@@ -29,18 +39,27 @@ export default{
   },
   methods: {
     async register () {
-      const response = await AuthenticationService.register({
-        email: this.email,
-        password: this.password
-      })
-      console.log(response.data)
+      try {
+        await AuthenticationService.register({
+          email: this.email,
+          password: this.password
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
-  },
-  // change the field of email to hello world after 2s
-  mounted () {
-    setTimeout(() => {
-      this.email = 'hello world'
-    }, 2000)
   }
+  // change the field of email to hello world after 2s
+  // mounted () {
+  //   setTimeout(() => {
+  //     this.email = 'hello world'
+  //   }, 2000)
+  // }
 }
 </script>
+
+<style scoped>
+.error {
+  color: red;
+}
+</style>
