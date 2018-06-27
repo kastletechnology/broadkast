@@ -1,19 +1,25 @@
 <template>
   <v-layout column>
-    <v-flex xs10 offset-xs1>
+    <v-flex xs6 offset-xs3>
       <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toobar-title> Register</v-toobar-title>
+        <v-toolbar flat dense class="cyan">
+          <v-toobar-title> Register </v-toobar-title>
         </v-toolbar>
 
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <input type="email" name="email" v-model="email" placeholder="email"/>
+          <v-text-field
+            label="Email"
+            v-model="email"
+        ></v-text-field>
           <br>
           <!-- v-model is the element checking  -->
-          <input type="password" name="password" v-model="password" placeholder="password"/>
+          <v-text-field
+            label="Password"
+            v-model="password"
+        ></v-text-field>
           <br>
           <div class="error" v-html="error" />
-          <v-btn class="cyan" @click="register"> Register </v-btn>
+          <v-btn dark class="cyan" @click="register"> Register </v-btn>
         </div>
       </div>
     </v-flex>
@@ -59,7 +65,4 @@ export default{
 </script>
 
 <style scoped>
-.error {
-  color: red;
-}
 </style>

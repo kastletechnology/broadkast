@@ -12,4 +12,6 @@ module.exports = (app) => {
 
 //  with the controller built seperately, it can be replaced by below
   app.post('/register', AuthenticationControllerPolicy.register, AuthenticationController.register)
+
+  app.post('/login', AuthenticationController.login)
 }

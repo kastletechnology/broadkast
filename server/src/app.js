@@ -15,7 +15,7 @@ app.use(cors())
 require('./routes')(app)
 
 // For database usage
-sequelize.sync()
+sequelize.sync({force: true})
   .then(() => {
     // refer to config.js:
     // app.listen(process.env.PORT || 8081)
