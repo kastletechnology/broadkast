@@ -23,7 +23,11 @@ function jwtSignUser (user) {
      async register (req, res) {
          try{
             const user = await User.create(req.body)
-            res.send(user.toJSON())
+            const userJson = user.toJSON()
+            res.send({
+                user: userJson,
+                token: jwtSignUser(userJson)
+            })
          } catch (err) {
             // eg. email already exists
             res.status(400).send({
