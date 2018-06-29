@@ -7,16 +7,22 @@
         </v-toolbar>
 
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <v-text-field
-            label="Email"
-            v-model="email"
-        ></v-text-field>
-          <br>
-          <!-- v-model is the element checking  -->
-          <v-text-field
-            label="Password"
-            v-model="password"
-        ></v-text-field>
+          <form
+            name="broadkast-form"
+            autocomplete="off">
+            <v-text-field
+              label="Email"
+              v-model="email"
+            ></v-text-field>
+            <br>
+            <!-- v-model is the element checking  -->
+            <v-text-field
+              label="Password"
+              v-model="password"
+              type="password"
+              autocomplete="new-password"
+          ></v-text-field>
+          </form>
           <br>
           <div class="error" v-html="error" />
           <v-btn dark class="cyan" @click="register"> Register </v-btn>
@@ -46,10 +52,12 @@ export default{
   methods: {
     async register () {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.token)
       } catch (error) {
         this.error = error.response.data.error
       }
