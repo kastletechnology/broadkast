@@ -52,7 +52,7 @@ export default{
   methods: {
     async register () {
       try {
-        const response = await AuthenticationService.login({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })

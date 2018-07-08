@@ -31,7 +31,7 @@ function jwtSignUser (user) {
          } catch (err) {
             // eg. email already exists
             res.status(400).send({
-                error: 'this email account is already in use.'
+                error: 'This email account is already in use.'
             })
          }
      },
