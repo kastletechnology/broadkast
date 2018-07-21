@@ -1,10 +1,22 @@
 <template>
  <v-layout column>
     <v-flex xs6 offset-xs3>
-      <panel title="song">
+      <panel title="Songs">
+        <v-btn
+          slot="action"
+          class="cyan accent-2"
+          light
+          small
+          absolute
+          right
+          middle
+          fab>
+          <v-icon>add</v-icon>
+        </v-btn>
+
         <div
           v-for="song in songs"
-          :key="song.title">
+          :key="song.id">
           {{song.title}}
           {{song.artist}}
           {{song.album}}
@@ -28,7 +40,7 @@ export default {
   },
   async mounted () {
     // do a request to the backend for all the songs
-    this.songs = await SongsService.index()
+    this.songs = (await SongsService.index()).data
   }
 }
 </script>
