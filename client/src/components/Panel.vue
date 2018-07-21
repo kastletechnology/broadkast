@@ -5,24 +5,18 @@
     </v-toolbar>
 
     <div class="pl-4 pr-4 pt-2 pb-2">
-       <slot name="hello">
+       <slot title="song">
         No slot content defined.
        </slot>
-      <slot name="bye">
-        No slot content defined.
-      </slot>
     </div>
   </div>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 export default {
-  data () {
-    return {
-      title: "hello world"
-    }
-  }
+  props: [
+    'title'
+  ]
 }
 </script>
 
