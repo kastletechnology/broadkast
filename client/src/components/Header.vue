@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed class="white selfbar" dark> 
+  <v-toolbar fixed class="white selfbar"> 
     <v-toolbar-title class="mr-4">
       <span
        class="home"
@@ -16,11 +16,17 @@
         Browse
       </v-btn>
     </v-toolbar-items>
+    <v-text-field
+      class="mx-3"
+      flat
+      label="Search"
+      prepend-inner-icon="search"
+      solo-inverted
+    ></v-text-field>
 
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-<<<<<<< HEAD
         <v-btn
           v-if = "!$store.state.isUserLoggedIn"
           depressed small color="yellow darken-2"
@@ -41,28 +47,6 @@
           @click="logout">
           Log out
         </v-btn>
-=======
-      <v-btn
-        v-if = "!$store.state.isUserLoggedIn"
-        flat dark
-        @click="navigateTo({name:'register'})">
-        Sign Up
-      </v-btn>
-
-      <v-btn
-        v-if = "!$store.state.isUserLoggedIn"
-        flat dark
-        @click="navigateTo({name:'login'})">
-        Log In
-      </v-btn>
-
-      <v-btn
-        v-if = "$store.state.isUserLoggedIn"
-        flat dark
-        @click="logout">
-        Log out
-      </v-btn>
->>>>>>> adce64ebdf11ced380c6277722559533021365e1
 
     </v-toolbar-items>
   </v-toolbar>
