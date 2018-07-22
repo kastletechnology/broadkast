@@ -1,8 +1,9 @@
 <template>
-  <v-toolbar fixed class="cyan" dark>
+  <v-toolbar fixed class="white selfbar" dark> 
     <v-toolbar-title class="mr-4">
       <span
        class="home"
+       style="color: #0069b3"
        @click="navigateTo({name: 'root'})">
        Broadkast
       </span>
@@ -10,7 +11,7 @@
 
     <v-toolbar-items>
       <v-btn
-        flat dark
+        depressed small color="yellow darken-2"
         @click="navigateTo({name:'songs'})">
         Browse
       </v-btn>
@@ -21,21 +22,21 @@
     <v-toolbar-items>
         <v-btn
           v-if = "!$store.state.isUserLoggedIn"
-          flat dark
+          depressed small color="yellow darken-2"
           @click="navigateTo({name:'login'})">
           Login
         </v-btn>
       <!-- <router-link to="register"> -->
         <v-btn
           v-if = "!$store.state.isUserLoggedIn"
-          flat dark
+          depressed small color="yellow darken-2"
           @click="navigateTo({name:'register'})">
           Sign Up
         </v-btn>
 
         <v-btn
           v-if = "$store.state.isUserLoggedIn"
-          flat dark
+          depressed small color="yellow darken-2"
           @click="logout">
           Log out
         </v-btn>
@@ -63,6 +64,10 @@ export default {
 </script>
 
 <style scoped>
+.selfbar {
+  border-top: 5px solid #0069b3 !important;
+}
+
 .home {
     cursor: pointer;
 }
