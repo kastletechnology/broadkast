@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed class="white selfbar"> 
+  <v-toolbar fixed class="white selfbar">
     <v-toolbar-title class="mr-4">
       <span
        class="home"

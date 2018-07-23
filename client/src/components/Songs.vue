@@ -37,7 +37,7 @@
               <v-btn dark class="cyan"
                 @click="navigateTo({
                   name: 'song',
-                  params: {songId: song.Id}})">
+                  params: {songId: song.id}})">
                 View
               </v-btn>
             </v-flex>
