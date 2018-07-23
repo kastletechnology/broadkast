@@ -1,6 +1,6 @@
 <template>
  <v-layout column>
-    <v-flex xs6 offset-xs3>
+    <v-flex .col-md-6 .offset-md-3>
       <panel title="Songs">
         <!-- Redirect to song-create page when the add button is clicked -->
         <v-btn

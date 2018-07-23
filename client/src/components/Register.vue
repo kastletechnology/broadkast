@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <v-flex xs6 offset-xs3>
+    <v-flex .col-md-6 .offset-md-3>
       <panel title="Register">
         <form
           name="broadkast-form"
