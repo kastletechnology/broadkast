@@ -14,6 +14,17 @@ module.exports = {
       })
     }
   },
+  async show (req, res) {
+    try {
+      // Find one song according to the songId
+      const song = await Song.findById(req.params.songId)
+      res.send(song)
+    } catch (err) {
+      res.status(500).send({
+        error: 'An error has occured trying to fetch the songs'
+      })
+    }
+  },
   async post (req, res) {
     try {
       // Creat new Songs
