@@ -21,7 +21,7 @@ module.exports = {
       res.send(song)
     } catch (err) {
       res.status(500).send({
-        error: 'An error has occured trying to fetch the songs'
+        error: 'An error has occured trying to fetch the song'
       })
     }
   },
