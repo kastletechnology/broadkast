@@ -20,7 +20,7 @@
       </v-card-text>
 
       <v-card-text class="white--text pt-0">
-        This application is built for all teachers to build their online teaching meterial. For any enquiry, please contact 6353 9312 and find Kiki Chan.
+        This application is built for all teachers to build their online teaching meterial. For any enquiry, please contact 6353 9312 and find Kiki Chan. This application is built for all teachers to build their online teaching meterial. For any enquiry, please contact 6353 9312 and find Kiki Chan.This application is built for all teachers to build their online teaching meterial. For any enquiry, please contact 6353 9312 and find Kiki Chan.
       </v-card-text>
 
       <v-divider></v-divider>
