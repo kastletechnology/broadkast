@@ -16,7 +16,9 @@
         Browse
       </v-btn>
     </v-toolbar-items>
-    <div style="padding-left: 50px;">
+    <v-spacer></v-spacer>
+    <i class="fas fa-search"></i>
+    <div style="padding-left: 10px;">
       <form role="search">
         <div class="search-control">
           <input type="search" id="site-search" name="q"
@@ -26,9 +28,6 @@
         </div>
       </form>
     </div>
-
-    <v-spacer></v-spacer>
-
     <v-toolbar-items>
         <v-btn
           v-if = "!$store.state.isUserLoggedIn"
