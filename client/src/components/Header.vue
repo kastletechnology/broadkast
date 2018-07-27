@@ -27,7 +27,6 @@
       </form>
     </div>
 
-
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
@@ -80,26 +79,26 @@ export default {
 }
 
 .home {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .home:hover {
-    color: black;
+  color: black;
 }
 
 .search-control {
   border-left: 50px;
 }
 
-input[type=search] { 
-	cursor: pointer;
-	display: block; 
-	width: 200px; 
+input[type=search] {
+  cursor: pointer;
+  display: block;
+  width: 200px;
   border-left: 100px;
-  letter-spacing: 4px;            
+  letter-spacing: 4px;
 }
 
 *::-webkit-search-cancel-button {
-    -webkit-appearance: searchfield-cancel-button;
+  -webkit-appearance: searchfield-cancel-button;
 }
 </style>
