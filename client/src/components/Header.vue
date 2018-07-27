@@ -16,13 +16,17 @@
         Browse
       </v-btn>
     </v-toolbar-items>
-    <v-text-field
-      class="mx-3"
-      flat
-      label="Search"
-      prepend-inner-icon="search"
-      solo-inverted
-    ></v-text-field>
+    <div style="padding-left: 50px;">
+      <form role="search">
+        <div class="search-control">
+          <input type="search" id="site-search" name="q"
+                placeholder="Search the site..."
+                aria-label="Search through site content"
+          />
+        </div>
+      </form>
+    </div>
+
 
     <v-spacer></v-spacer>
 
@@ -81,5 +85,21 @@ export default {
 
 .home:hover {
     color: black;
+}
+
+.search-control {
+  border-left: 50px;
+}
+
+input[type=search] { 
+	cursor: pointer;
+	display: block; 
+	width: 200px; 
+  border-left: 100px;
+  letter-spacing: 4px;            
+}
+
+*::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
 }
 </style>
