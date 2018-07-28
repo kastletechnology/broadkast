@@ -16,13 +16,13 @@ Vue.config.productionTip = false
 
 Vue.use(Vuetify)
 
-Vue.use(VueYouTubeEmbed)
+Vue.use(VueYouTubeEmbed) // Embedded Youtube Component
 
 sync(store, router)
 
 library.add(faCoffee)
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon) //  Add Icon Component
 
 Vue.config.productionTip = false
 
