@@ -28,7 +28,6 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
 
 export default{
   // set the default data
@@ -58,9 +57,6 @@ export default{
         this.error = error.response.data.error
       }
     }
-  },
-  components: {
-    Panel
   }
   // change the field of email to hello world after 2s
   // mounted () {

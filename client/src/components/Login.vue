@@ -38,7 +38,6 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
 
 export default{
   // set the default data
@@ -74,9 +73,6 @@ export default{
     setDialog () {
       this.dialog = true
     }
-  },
-  components: {
-    Panel
   }
 }
 </script>
