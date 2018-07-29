@@ -29,12 +29,13 @@
       </form>
     </div>
     <v-toolbar-items>
-        <v-btn
+      <Login />
+        <!-- <v-btn
           v-if = "!$store.state.isUserLoggedIn"
           depressed small color="yellow darken-2"
           @click="navigateTo({name:'login'})">
           Login
-        </v-btn>
+        </v-btn> -->
       <!-- <router-link to="register"> -->
         <v-btn
           v-if = "!$store.state.isUserLoggedIn"
@@ -55,6 +56,8 @@
 </template>
 
 <script>
+import Login from '@/components/Login'
+
 export default {
   methods: {
     navigateTo (route) {
@@ -63,11 +66,15 @@ export default {
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
+      Login.methods.setDialog()
       // TODO: redirect to homepage
       this.$router.push({
         name: 'root'
       })
     }
+  },
+  components: {
+    Login
   }
 }
 </script>
@@ -78,11 +85,11 @@ export default {
 }
 
 .home {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .home:hover {
-  color: black;
+    color: black;
 }
 
 .search-control {
@@ -98,6 +105,6 @@ input[type=search] {
 }
 
 *::-webkit-search-cancel-button {
-  -webkit-appearance: searchfield-cancel-button;
+    -webkit-appearance: searchfield-cancel-button;
 }
 </style>
