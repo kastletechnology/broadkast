@@ -30,26 +30,26 @@
     </div>
     <v-toolbar-items>
       <Login />
-        <!-- <v-btn
-          v-if = "!$store.state.isUserLoggedIn"
-          depressed small color="yellow darken-2"
-          @click="navigateTo({name:'login'})">
-          Login
-        </v-btn> -->
+      <!-- <v-btn
+        v-if = "!$store.state.isUserLoggedIn"
+        depressed small color="yellow darken-2"
+        @click="Login">
+        Login
+      </v-btn> -->
       <!-- <router-link to="register"> -->
-        <v-btn
-          v-if = "!$store.state.isUserLoggedIn"
-          depressed small color="yellow darken-2"
-          @click="navigateTo({name:'register'})">
-          Sign Up
-        </v-btn>
+      <v-btn
+        v-if = "!$store.state.isUserLoggedIn"
+        depressed small color="yellow darken-2"
+        @click="navigateTo({name:'register'})">
+        Sign Up
+      </v-btn>
 
-        <v-btn
-          v-if = "$store.state.isUserLoggedIn"
-          depressed small color="yellow darken-2"
-          @click="logout">
-          Log out
-        </v-btn>
+      <v-btn
+        v-if = "$store.state.isUserLoggedIn"
+        depressed small color="yellow darken-2"
+        @click="logout">
+        Log out
+      </v-btn>
 
     </v-toolbar-items>
   </v-toolbar>
@@ -99,7 +99,7 @@ export default {
 input[type=search] {
   cursor: pointer;
   display: block;
-  width: 200px;
+  width: 400px;
   border-left: 100px;
   letter-spacing: 4px;
 }

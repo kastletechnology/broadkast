@@ -2,8 +2,11 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" max-width="500px">
       <v-btn slot="activator"
-             v-if = "!$store.state.isUserLoggedIn"
-             depressed small color="yellow darken-2">Log In</v-btn>
+        v-if = "!$store.state.isUserLoggedIn"
+        depressed small color="yellow darken-2"
+        style="height: 64px;">
+        Log In
+      </v-btn>
       <v-card>
         <v-card-title>
           <span class="headline">Log In</span>
@@ -79,5 +82,4 @@ export default{
 </script>
 
 <style scoped>
-
 </style>
