@@ -12,7 +12,9 @@
     <v-toolbar-items>
       <v-btn
         depressed small color="yellow darken-2"
-        @click="navigateTo({name:'songs'})">
+        :to="{
+          name: 'songs'
+        }">
         Browse
       </v-btn>
     </v-toolbar-items>
@@ -37,12 +39,14 @@
         Login
       </v-btn> -->
       <!-- <router-link to="register"> -->
-      <v-btn
-        v-if = "!$store.state.isUserLoggedIn"
-        depressed small color="yellow darken-2"
-        @click="navigateTo({name:'register'})">
-        Sign Up
-      </v-btn>
+        <v-btn
+          v-if = "!$store.state.isUserLoggedIn"
+          depressed small color="yellow darken-2"
+          :to="{
+            name: 'register'
+          }">
+          Sign Up
+        </v-btn>
 
       <v-btn
         v-if = "$store.state.isUserLoggedIn"
@@ -66,7 +70,6 @@ export default {
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
-      Login.methods.setDialog()
       // TODO: redirect to homepage
       this.$router.push({
         name: 'root'
