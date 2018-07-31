@@ -47,6 +47,11 @@ export default new Router({
       path: '/songs/:songId/edit',
       name: 'song-edit',
       component: EditSong
+    },
+    // A default path when going to invalid path
+    {
+      path: '*',
+      redirect: 'root'
     }
   ]
 })

@@ -14,9 +14,14 @@
 
         <!-- Redirect to song-edit page when the edit button is clicked -->
         <v-btn dark class="cyan"
-          @click="navigateTo({
+          :to="{
             name: 'song-edit',
-            params: {songId: song.id}})">
+            params () {
+              return {
+                songId: song.id
+            }
+            }
+          }">
            <v-icon>edit</v-icon>&nbsp;Edit
         </v-btn>
       </v-flex>
