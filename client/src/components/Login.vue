@@ -2,7 +2,6 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" max-width="500px">
       <v-btn slot="activator"
-        v-if = "!$store.state.isUserLoggedIn"
         depressed small color="yellow darken-2"
         style="height: 64px;">
         Log In
@@ -28,7 +27,7 @@
           <div class="danger-alert" v-html="error" />
           <v-spacer></v-spacer>
           <v-btn color="blue darken-1" flat @click.native="dialog = false">Close</v-btn>
-          <v-btn color="blue darken-1" flat @click.native="login">Login</v-btn>
+          <v-btn color="blue darken-1" flat @click="login">Login</v-btn>
         </v-card-actions>
 
       </v-card>
@@ -53,12 +52,12 @@ export default{
   watch: {
     email (value) {
       console.log('email has changed', value)
-      console.log('show dialog status', this.dialog)
     }
   },
   methods: {
     async login () {
       try {
+        console.log('i am logging in', this.dialog)
         const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
@@ -69,9 +68,6 @@ export default{
       } catch (error) {
         this.error = error.response.data.error
       }
-    },
-    setDialog () {
-      this.dialog = true
     }
   }
 }

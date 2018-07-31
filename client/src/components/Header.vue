@@ -31,7 +31,9 @@
       </form>
     </div>
     <v-toolbar-items>
-      <Login />
+      <div v-if = "!$store.state.isUserLoggedIn">
+        <Login />
+      </div>
       <!-- <v-btn
         v-if = "!$store.state.isUserLoggedIn"
         depressed small color="yellow darken-2"
@@ -68,6 +70,7 @@ export default {
       this.$router.push(route)
     },
     logout () {
+      console.log('I am logging out now')
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       // TODO: redirect to homepage
