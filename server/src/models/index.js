@@ -21,6 +21,14 @@ fs
       db[model.name] = model
   })
 
+Object.keys(db).forEach(function (modelName) {
+  // For each model, check if method 'associate' exist
+  if('associate' in db[modelName]) {
+    // If the model contains 'associate' method, just call it
+    db[modelName].associate(db) 
+  }
+})
+
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 

@@ -14,10 +14,10 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12>
-                <v-text-field label="Email"  v-model="email" required></v-text-field>
+                <v-text-field label="Email"  v-model="email" required @keyup.enter="login"></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Password" type="password"  v-model="password" required></v-text-field>
+                <v-text-field label="Password" type="password"  v-model="password" required @keyup.enter="login"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
@@ -57,7 +57,6 @@ export default{
   methods: {
     async login () {
       try {
-        console.log('i am logging in', this.dialog)
         const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
@@ -68,6 +67,13 @@ export default{
       } catch (error) {
         this.error = error.response.data.error
       }
+    },
+    async setDialog () {
+      this.dialog = false
+      this.email = ''
+      this.password = ''
+      this.error = null
+      console.log('show dialog status', this.dialog)
     }
   }
 }
