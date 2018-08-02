@@ -83,7 +83,6 @@ export default {
     color: black;
 }
 
-
 input[type=search] {
   cursor: pointer;
   display: block;

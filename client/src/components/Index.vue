@@ -12,11 +12,28 @@
         </v-carousel>
       </v-flex>
     </v-layout>
-
+    <table style="padding: 10px 100px;">
+      <td>
+        <tr><course-temp /></tr>
+        <tr><course-temp /></tr>
+        <tr><course-temp /></tr>
+      </td>
+      <td>
+        <tr><course-temp /></tr>
+        <tr><course-temp /></tr>
+        <tr><course-temp /></tr>
+      </td>
+      <td>
+        <tr><course-temp /></tr>
+        <tr><course-temp /></tr>
+        <tr><course-temp /></tr>
+      </td>
+    </table>
   </div>
 </template>
 
 <script>
+import CourseTemp from './CourseTemp'
 export default {
   name: 'Index',
   data () {
@@ -61,6 +78,9 @@ export default {
       ],
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components: {
+    CourseTemp
   }
 }
 </script>

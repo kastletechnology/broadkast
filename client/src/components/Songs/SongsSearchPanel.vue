@@ -5,7 +5,7 @@
         <i class="fas fa-search" />
         <input type="search" v-model="search" name="q"
               placeholder="Search the site..."
-        />      
+        />
       </div>
     </form>
   </div>
