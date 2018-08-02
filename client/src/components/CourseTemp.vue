@@ -15,7 +15,7 @@
       </v-card-title>
 
       <v-card-actions>
-        <v-btn flat color="orange">Share</v-btn>
+        <v-btn flat color="orange"><i class="fas fa-share"/></v-btn>
         <v-btn flat color="orange">Explore</v-btn>
       </v-card-actions>
     </v-card>
@@ -32,3 +32,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.card {
+  width: 300px;
+  padding: 50px 50px;
+}
+</style>

@@ -12,23 +12,41 @@
         </v-carousel>
       </v-flex>
     </v-layout>
-    <table style="padding: 10px 100px;">
-      <td>
-        <tr><course-temp /></tr>
-        <tr><course-temp /></tr>
-        <tr><course-temp /></tr>
-      </td>
-      <td>
-        <tr><course-temp /></tr>
-        <tr><course-temp /></tr>
-        <tr><course-temp /></tr>
-      </td>
-      <td>
-        <tr><course-temp /></tr>
-        <tr><course-temp /></tr>
-        <tr><course-temp /></tr>
-      </td>
+
+    <v-layout row justify-center>
+      <table>
+        <td>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+        </td>
+        <td>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+        </td>
+        <td>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+        </td>
+        <td>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+          <tr><course-temp /></tr>
+        </td>
+     
+ 
     </table>
+    </v-layout>
   </div>
 </template>
 
