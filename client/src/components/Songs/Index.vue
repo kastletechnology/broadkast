@@ -1,7 +1,7 @@
 <template>
  <v-layout column>
     <v-flex .col-md-6 .offset-md-3>
-      <songs-search-panel />
+      <!-- <songs-search-panel /> -->
       <songs-panel class="mt-2" />
     </v-flex>
   </v-layout>

@@ -1,10 +1,18 @@
 <template>
-  <panel title="Search">
-    <v-text-field
+  <div style="padding-left: 10px;">
+    <form role="search">
+      <div class="search-control">
+        <i class="fas fa-search" />
+        <input type="search" v-model="search" name="q"
+              placeholder="Search the site..."
+        />      
+      </div>
+    </form>
+  </div>
+    <!-- <v-text-field
       label="Search by song title, artist, album and genre."
       v-model="search"
-    ></v-text-field>
-  </panel>
+    ></v-text-field> -->
 </template>
 
 <script>

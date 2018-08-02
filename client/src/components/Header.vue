@@ -19,36 +19,20 @@
       </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
-    <i class="fas fa-search"></i>
-    <div style="padding-left: 10px;">
-      <form role="search">
-        <div class="search-control">
-          <input type="search" id="site-search" name="q"
-                placeholder="Search the site..."
-                aria-label="Search through site content"
-          />
-        </div>
-      </form>
-    </div>
+    <Search />
     <v-toolbar-items>
       <div v-if = "!$store.state.isUserLoggedIn">
         <Login />
       </div>
-      <!-- <v-btn
+
+      <v-btn
         v-if = "!$store.state.isUserLoggedIn"
         depressed small color="yellow darken-2"
-        @click="Login">
-        Login
-      </v-btn> -->
-      <!-- <router-link to="register"> -->
-        <v-btn
-          v-if = "!$store.state.isUserLoggedIn"
-          depressed small color="yellow darken-2"
-          :to="{
-            name: 'register'
-          }">
-          Sign Up
-        </v-btn>
+        :to="{
+          name: 'register'
+        }">
+        Sign Up
+      </v-btn>
 
       <v-btn
         v-if = "$store.state.isUserLoggedIn"
@@ -63,7 +47,7 @@
 
 <script>
 import Login from '@/components/Login'
-
+import Search from '@/components/Songs/SongsSearchPanel'
 export default {
   methods: {
     navigateTo (route) {
@@ -80,7 +64,8 @@ export default {
     }
   },
   components: {
-    Login
+    Login,
+    Search
   }
 }
 </script>
@@ -98,9 +83,6 @@ export default {
     color: black;
 }
 
-.search-control {
-  border-left: 50px;
-}
 
 input[type=search] {
   cursor: pointer;
