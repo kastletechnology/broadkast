@@ -43,8 +43,6 @@
           <tr><course-temp /></tr>
           <tr><course-temp /></tr>
         </td>
-     
- 
     </table>
     </v-layout>
   </div>

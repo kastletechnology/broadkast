@@ -24,6 +24,18 @@
           }">
            <v-icon>edit</v-icon>&nbsp;Edit
         </v-btn>
+
+        <!-- Unbookmark the song if the unbookmark button is clicked -->
+        <v-btn v-if="isUserLoggedIn && bookmark"
+          dark class="cyan" @click="unsetAsBookmark">
+           <v-icon>bookmark_border</v-icon>&nbsp;Unbookmark
+        </v-btn>
+
+        <!-- Bookmark the song if the bookmark button is clicked -->
+        <v-btn v-if="isUserLoggedIn && !bookmark"
+          dark class="cyan" @click="setAsBookmark">
+           <v-icon>bookmark</v-icon>&nbsp;Bookmark
+        </v-btn>
       </v-flex>
 
       <v-flex xs6>
@@ -36,13 +48,61 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import BookmarksService from '@/services/BookmarksService'
+
 export default {
   props: [
     'song'
   ],
+  data () {
+    return {
+      bookmark: null
+    }
+  },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
+  },
+  // To index the bookmark from database when the page is loaded
+  async mounted () {
+    console.log('mounted  here')
+    if (!this.isUserLoggedIn) {
+      return
+    }
+
+    try {
+      this.bookmark = (await BookmarksService.index({
+        songId: this.song.id,
+        userId: this.$store.state.user.id
+      })).data
+    } catch (err) {
+      console.log(err)
+    }
+  },
   methods: {
     navigateTo (route) {
       this.$router.push(route)
+    },
+    async setAsBookmark () {
+      try {
+        this.bookmark = (await BookmarksService.post({
+          songId: this.song.id,
+          userId: this.$store.state.user.id
+        })).data
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async unsetAsBookmark () {
+      try {
+        await BookmarksService.delete(this.bookmark.id)
+        this.bookmark = null
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }

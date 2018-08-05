@@ -8,6 +8,7 @@
           <v-text-field
             label="Email"
             v-model="email"
+            @keyup.enter="register"
           ></v-text-field>
           <br>
           <!-- v-model is the element checking  -->
@@ -16,6 +17,7 @@
             v-model="password"
             type="password"
             autocomplete="new-password"
+            @keyup.enter="register"
         ></v-text-field>
         </form>
         <br>

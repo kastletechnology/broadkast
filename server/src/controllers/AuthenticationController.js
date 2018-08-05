@@ -40,7 +40,7 @@ module.exports = {
     try {
       const {email, password} = req.body
       const user = await User.findOne({
-        Where: {
+        where: {
           email: email
         }
       })
