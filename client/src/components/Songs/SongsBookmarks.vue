@@ -5,7 +5,6 @@
       :pagination.sync="pagination"
       :items="bookmarks">
       <template slot="items" slot-scope="props">
-        <!-- Two column -->
         <td class="text-xs-right">
           {{props.item.title}}
         </td>
@@ -20,26 +19,34 @@
 <script>
 import {mapState} from 'vuex'
 import BookmarksService from '@/services/BookmarksService'
+
 export default {
   data () {
     return {
       headers: [
         {
-          text: 'Title', // Tag for the column
-          value: 'title', // Name of the key that to reference from bookmarks data
-          align: 'right'
+          text: 'Title',
+          value: 'title'
         },
         {
           text: 'Artist',
-          value: 'artist',
-          align: 'right'
+          value: 'artist'
         }
       ],
       pagination: {
-        sortBy: 'date',
-        desecending: true
+        sortBy: 'data',
+        descending: true
       },
-      bookmarks: []
+      bookmarks: [
+        {
+          title: 'hello world',
+          artist: 'TEsting'
+        },
+        {
+          title: 'hello world',
+          artist: 'TEsting'
+        }
+      ]
     }
   },
   computed: {
@@ -48,16 +55,16 @@ export default {
       'user'
     ])
   },
-  // To find all the bookmarks of this user from the backend
   async mounted () {
     if (this.isUserLoggedIn) {
       this.bookmarks = (await BookmarksService.index({
-        userId: this.user.id
+        userID: this.user.id
       })).data
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
+
 </style>

@@ -1,28 +1,25 @@
 <template>
  <v-layout>
    <v-flex xs6>
-     <songs-bookmarks class="mt-2" />
-     <recently-viewed-songs class="mt-2" />
+     <songs-bookmarks />
    </v-flex>
-    <v-flex .col-md-6 .offset-md-3>
+    <v-flex xs6 class="ml-2">
       <!-- <songs-search-panel /> -->
-      <songs-panel class="mt-2 ml-2" />
+      <songs-panel />
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import SongsSearchPanel from './SongsSearchPanel'
-import SongsBookmarks from './SongsBookmarks'
-import RecentlyViewedSongs from './RecentlyViewedSongs'
 import SongsPanel from './SongsPanel'
 import SongsService from '@/services/SongsService'
+import SongsBookmarks from './SongsBookmarks'
 export default {
   components: {
     SongsPanel,
     SongsSearchPanel,
-    SongsBookmarks,
-    RecentlyViewedSongs
+    SongsBookmarks
   },
   data () {
     return {
