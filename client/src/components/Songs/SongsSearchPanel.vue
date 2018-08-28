@@ -5,6 +5,7 @@
         <i class="fas fa-search" />
         <input type="search" v-model="search" name="q"
               placeholder="Search the site..."
+              @keyup.enter="Search"
         />
       </div>
     </form>
@@ -24,10 +25,24 @@ export default {
     }
   },
   watch: {
+  // methods: {
+  //   async Search () {
+  //     const route = {
+  //       name: 'songs'
+  //     }
+
+  //     if (this.search !== '') {
+  //       route.query = {
+  //         search: this.search
+  //       }
+  //     }
+  //     this.$router.push(route)
+  //   }
     search: _.debounce(async function (value) {
       const route = {
         name: 'songs'
       }
+
       if (this.search !== '') {
         route.query = {
           search: this.search
@@ -36,7 +51,7 @@ export default {
       this.$router.push(route)
     }, 700),
     '$route.query.search': {
-      immediate: true,
+      // immediate: true,
       handler (value) {
         this.search = value
       }
