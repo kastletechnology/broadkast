@@ -1,15 +1,33 @@
-const {Bookmark} = require('../models')
-
+const {
+  Bookmark,
+  Song,
+  User
+} = require('../models')
+const _ = require('lodash')
 module.exports = {
   async index (req, res) {
     try {
       const {songId, userId} = req.query
+      const where = {
+        UserId: userId
+      }
+      if (songId) {
+        where.SongId = songId
+      }
       const bookmarks = await Bookmark.findAll({
-        where: {
-          SongId: songId,
-          UserId: userId
-        }
-      })
+        // Work for both instances (with SongId or without SongId)
+        where: where,
+        include: [
+          {
+            // Pass in model that is associated to the bookmark
+            model: Song
+          }
+        ]
+      }).map(bookmark => bookmark.toJSON())
+        // Make a new object with the bookmark ID
+        .map(bookmark => _.extend({
+          bookmarkId: bookmark.id
+        }, bookmark.Song))
       res.send(bookmarks)
     } catch (err) {
       res.status(500).send({
