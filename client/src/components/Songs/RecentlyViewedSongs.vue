@@ -3,7 +3,7 @@
     <v-data-table
       :headers="headers"
       :pagination.sync="pagination"
-      :items="bookmarks">
+      :items="histories">
       <template slot="items" slot-scope="props">
         <!-- Two column -->
         <td class="text-xs-right">
@@ -26,7 +26,7 @@ export default {
       headers: [
         {
           text: 'Title', // Tag for the column
-          value: 'title', // Name of the key that to reference from bookmarks data
+          value: 'title', // Name of the key that to reference from histories data
           align: 'right'
         },
         {
@@ -36,10 +36,10 @@ export default {
         }
       ],
       pagination: {
-        sortBy: 'date',
-        desecending: true
+        sortBy: 'createdAt',
+        descending: true
       },
-      songs: []
+      histories: []
     }
   },
   computed: {
@@ -48,10 +48,10 @@ export default {
       'user'
     ])
   },
-  // To find all the bookmarks of this user from the backend
+  // To find all the histories of this user from the backend
   async mounted () {
     if (this.isUserLoggedIn) {
-      this.bookmarks = (await SongHistoryService.index({
+      this.histories = (await SongHistoryService.index({
         userId: this.user.id
       })).data
     }

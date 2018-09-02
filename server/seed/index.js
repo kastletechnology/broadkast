@@ -39,7 +39,7 @@ sequelize.sync({force: true}) // force = true to drop everything in the database
 
     await Promise.all(
       histories.map(history => {
-        // Run through the json array and for each one create a new bookmark object
+        // Run through the json array and for each one create a new history object
         History.create(history)
       })
     )
