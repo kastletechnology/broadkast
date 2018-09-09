@@ -51,9 +51,7 @@ export default {
   // To find all the bookmarks of this user from the backend
   async mounted () {
     if (this.isUserLoggedIn) {
-      this.bookmarks = (await BookmarksService.index({
-        userId: this.user.id
-      })).data
+      this.bookmarks = (await BookmarksService.index()).data
     }
   }
 }

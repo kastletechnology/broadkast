@@ -53,8 +53,7 @@ export default {
     // Mark the song history if the user is logged in
     if (this.isUserLoggedIn) {
       SongHistoryService.post({
-        songId: songId,
-        userId: this.user.id
+        songId: songId
       })
     }
   },

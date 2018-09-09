@@ -13,7 +13,7 @@ passport.use(
     // If someone make a request that has the BearerToken and
     // the authorization is going to go ahead and use that
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: config.authorization.jwtSecret
+    secretOrKey: config.authentication.jwtSecret
   }, async function (jwtPayload, done) {
     try {
       // Check that user exist in the database

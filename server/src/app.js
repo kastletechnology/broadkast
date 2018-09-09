@@ -11,6 +11,8 @@ app.use(morgan('combine'))
 app.use(bodyParser.json())
 app.use(cors())
 
+require('./passport')
+
 // pass an express application
 require('./routes')(app)
 

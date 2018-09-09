@@ -51,9 +51,7 @@ export default {
   // To find all the histories of this user from the backend
   async mounted () {
     if (this.isUserLoggedIn) {
-      this.histories = (await SongHistoryService.index({
-        userId: this.user.id
-      })).data
+      this.histories = (await SongHistoryService.index()).data
     }
   }
 }
