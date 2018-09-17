@@ -7,6 +7,7 @@ import Songs from '@/components/Songs/Index'
 import CreateSong from '@/components/CreateSong'
 import ViewSong from '@/components/ViewSong/Index'
 import EditSong from '@/components/EditSong'
+import CreateForm from '@/components/CreateForm'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/songs/:songId/edit',
       name: 'song-edit',
       component: EditSong
+    },
+    {
+      path: '/CreateForm',
+      name: 'create-form',
+      component: CreateForm
     },
     // A default path when going to invalid path
     {

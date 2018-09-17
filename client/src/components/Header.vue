@@ -17,6 +17,13 @@
         }">
         Browse
       </v-btn>
+      <v-btn
+        depressed small color="yellow darken-2"
+        :to="{
+          name: 'create-form'
+        }">
+        Create
+      </v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <Search />
