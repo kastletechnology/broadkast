@@ -36,7 +36,6 @@
           </v-list-tile>
           <v-list-tile
             v-for="(child, i) in item.children" :key="i"
-            @click=""
           >
             <v-list-tile-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
@@ -48,12 +47,12 @@
             </v-list-tile-content>
           </v-list-tile>
         </v-list-group>
-        <v-list-tile v-else @click="" :key="item.text">
-          <v-list-tile-action>
+        <v-list-tile v-else :key="item.text">
+          <v-list-tile-action @click="navigateTo({name: item.navito})">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>
+            <v-list-tile-title @click="navigateTo({name: item.navito})">
               {{ item.text }}
             </v-list-tile-title>
           </v-list-tile-content>
@@ -73,16 +72,9 @@
       <span class="hidden-sm-and-down" @click="navigateTo({name: 'root'})">Broadkast</span>
     </v-toolbar-title>
 
-    <v-text-field
-      flat
-      solo-inverted
-      prepend-icon="search"
-      label="Search"
-      class="hidden-sm-and-down"
-    ></v-text-field>
-
-    <v-spacer></v-spacer>
     <Search />
+    <v-spacer></v-spacer>
+    
     <v-toolbar-items>
       <div v-if = "!$store.state.isUserLoggedIn">
         <Login />
@@ -90,7 +82,7 @@
 
       <v-btn
         v-if = "!$store.state.isUserLoggedIn"
-        depressed small 
+        depressed small
         :to="{
           name: 'register'
         }">
@@ -104,7 +96,7 @@
         Log out
       </v-btn>
 
-    </v-toolbar-items>    
+    </v-toolbar-items>
   </v-toolbar>
 
   <!-- Content page -->
@@ -165,9 +157,9 @@ export default {
     dialog: false,
     drawer: null,
     items: [
-      { icon: 'contacts', text: 'Contacts' },
+      { icon: 'contacts', text: 'Contacts', navito: 'songs' },
       { icon: 'history', text: 'Frequently viewed' },
-      { icon: 'content_copy', text: 'Create' },
+      { icon: 'content_copy', text: 'Create', navito: 'create-form' },
       {
         icon: 'keyboard_arrow_up',
         'icon-alt': 'keyboard_arrow_down',
@@ -192,7 +184,7 @@ export default {
       },
       { icon: 'settings', text: 'Settings' },
       { icon: 'chat_bubble', text: 'Send feedback' },
-      { icon: 'help', text: 'Help' },
+      { icon: 'help', text: 'Help' }
     ]
   }),
   props: {
@@ -230,14 +222,6 @@ export default {
 
 .home:hover {
     color: black;
-}
-
-input[type=search] {
-  cursor: pointer;
-  display: block;
-  width: 400px;
-  border-left: 100px;
-  letter-spacing: 4px;
 }
 
 *::-webkit-search-cancel-button {

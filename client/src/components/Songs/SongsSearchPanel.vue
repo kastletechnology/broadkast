@@ -1,19 +1,16 @@
 <template>
-  <div style="padding-left: 10px;">
-    <form role="search">
-      <div class="search-control">
-        <i class="fas fa-search" />
-        <input type="search" v-model="search" name="q"
-              placeholder="Search the site..."
-              @keyup.enter="Search"
-        />
-      </div>
-    </form>
-  </div>
-    <!-- <v-text-field
-      label="Search by song title, artist, album and genre."
+  <div class="searchbar">
+    <v-text-field
+      flat
+      solo-inverted
+      prepend-icon="search"
+      label="Search"
+      class="hidden-sm-and-down"
       v-model="search"
-    ></v-text-field> -->
+      @keyup.enter="Search"
+    ></v-text-field>
+  </div>
+
 </template>
 
 <script>
@@ -61,5 +58,14 @@ export default {
 </script>
 
 <style>
-
+/* input[type=search] {
+  cursor: pointer;
+  display: block;
+  width: 600px;
+  border-left: 100px;
+  letter-spacing: 4px;
+} */
+.searchbar {
+  width: 400px;
+}
 </style>
