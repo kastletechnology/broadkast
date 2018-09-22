@@ -13,7 +13,7 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row justify-center>
+    <!-- <v-layout row justify-center>
       <table>
         <td>
           <tr><course-temp /></tr>
@@ -44,7 +44,7 @@
           <tr><course-temp /></tr>
         </td>
     </table>
-    </v-layout>
+    </v-layout> -->
   </div>
 </template>
 
