@@ -10,7 +10,7 @@
           X
         </span>
 
-        <div class="mb-3" v-if="employee.name!=null">
+        <div class="mb-3" v-if="employee.type==='Employee'">
           <v-text-field
             label="name"
             required
@@ -33,7 +33,7 @@
           ></v-text-field>
         </div>
 
-        <div class="mb-3" v-if="employee.title!=null">
+        <div class="mb-3" v-if="employee.type==='Worksheet'">
           <v-text-field
             label="title"
             required
